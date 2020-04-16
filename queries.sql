@@ -16,3 +16,7 @@
     SELECT `Order`.Id as OrderID, Customer.CompanyName as Company, Employee.LastName as PlacedBy FROM `Order`
       JOIN Customer ON `Order`.CustomerId = Customer.Id
       JOIN Employee ON `Order`.EmployeeId = Employee.Id
+-- Displays CategoryName and a new column called Count that shows how many products are in each category. Shows 8 records.
+    SELECT CategoryName, ((LENGTH(Description) - LENGTH(REPLACE(Description, ',', '')))+1) as `Count` FROM Categories;
+-- Display OrderID and a column called ItemCount that shows the total number of products placed on the order. Shows 196 records.
+    
