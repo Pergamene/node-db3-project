@@ -83,9 +83,11 @@ async function remove(id) {
  * Inserts the new step, linking to scheme
  * 
  * @param step 
+ * @param scheme_id
  */
-async function addStep(step) {
-  const [id] = await db('steps').insert(step, 'id');
+async function addStep(step, scheme_id) {
+  const newStep = {...step, scheme_id};
+  const [id] = await db('steps').insert(newStep, 'id');
   console.log(id);
   return db('steps').where('id', id);
 }
